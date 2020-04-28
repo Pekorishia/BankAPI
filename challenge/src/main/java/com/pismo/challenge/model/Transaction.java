@@ -5,11 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 
 @Setter
@@ -22,11 +24,11 @@ public class Transaction {
     @Id
     private String id;
 
-    @NotNull
-    private float amount;
+    @CreatedDate
+    private Date eventDate;
 
     @NotNull
-    private String eventDate;
+    private float amount;
 
     @DBRef
     private Account account;
@@ -34,9 +36,8 @@ public class Transaction {
     @DBRef
     private OperationType operationType;
 
-    public Transaction(@NotNull float amount, @NotNull String eventDate, Account account, OperationType operationType) {
+    public Transaction(@NotNull float amount, Account account, OperationType operationType) {
         this.amount = amount;
-        this.eventDate = eventDate;
         this.account = account;
         this.operationType = operationType;
     }
