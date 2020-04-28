@@ -29,12 +29,12 @@ public class Transaction {
     private String eventDate;
 
     @DBRef
-    private String account;
+    private Account account;
 
     @DBRef
-    private String operationType;
+    private OperationType operationType;
 
-    public Transaction(@NotNull float amount, @NotNull String eventDate, String account, String operationType) {
+    public Transaction(@NotNull float amount, @NotNull String eventDate, Account account, OperationType operationType) {
         this.amount = amount;
         this.eventDate = eventDate;
         this.account = account;
