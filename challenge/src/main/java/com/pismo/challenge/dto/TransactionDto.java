@@ -14,7 +14,6 @@ public class TransactionDto {
     private String id;
     private float amount;
     private String eventDate;
-    private String accountName;
-    private String accountDocumentNumber;
-    private String operationTypeDescription;
+    private String accountId;
+    private long operationTypeId;
 }
